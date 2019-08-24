@@ -1,0 +1,11 @@
+.top-card{
+  background: #fff;
+  overflow: hidden;
+}
+.login-btn{
+  margin: 20px auto 0 auto;
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: url(/images/arrow_r_l.png) no-repeat center top;
+}

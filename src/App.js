@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+//import logo from './logo.svg'
+import './App.css'
+import { Provider } from 'mobx-react'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import AuthRouter from './AuthRouter'
+import rootStore from './store/index'
+
+import BottomBar from './components/layout/BottomBar'
+
+import Home from './pages/home/Home'
+
+import Community from './pages/community/Community'
+import ReleaseTopic from './pages/community/ReleaseTopic'
+import TopicDetail from './pages/community/TopicDetail'
+
+import User from './pages/user/User'
+import Login from './pages/user/Login'
+import Register from './pages/user/Register'
+import UserEdit from './pages/user/UserEdit'
+
+import More from './pages/more/More'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider rootStore={rootStore}>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/community" exact component={Community} />
+          <Route path="/user" exact component={User} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <AuthRouter path="/more" component={More} />
+          <AuthRouter path="/user/edit" component={UserEdit} />
+          <AuthRouter path="/topic/release" component={ReleaseTopic} />
+          <Route path="/topic/detail/:id" component={TopicDetail} />
+          <Route path="" component={() => '进入了知识的荒原'} />
+        </Switch>
+        <BottomBar />
+      </Router>
+    </Provider>
+  )
 }
 
-export default App;
+export default App

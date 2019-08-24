@@ -1,0 +1,44 @@
+.btn {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.btn-s {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+}
+
+.btn-m {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.btn-x {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.icon-release {
+  background: url(/images/release.png) no-repeat center center;
+  background-size: cover;
+}
+.icon-picture {
+  background: url(/images/picture.png) no-repeat center center;
+  background-size: contain;
+}
+.icon-link {
+  background: url(/images/link.png) no-repeat center center;
+  background-size: contain;
+}
+.icon-upload-picture {
+  background: url(/images/upload-picture.png) no-repeat center center;
+  background-size: contain;
+}

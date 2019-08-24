@@ -1,0 +1,54 @@
+.bottom-bar {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  z-index: 1000;
+}
+.nav-item {
+  width: 100%;
+  height: 50px;
+  line-height: 70px;
+  display: block;
+  vertical-align: bottom;
+  font-size: 10px;
+  text-align: center;
+  color: rgb(148, 148, 148);
+}
+.nav-home {
+  background: url(/images/home_0.png) no-repeat center 8px;
+  background-size: 20px 20px;
+}
+.nav-home-active {
+  background: url(/images/home_1.png) no-repeat center 8px;
+  background-size: 20px 20px;
+  color: #1296db;
+}
+.nav-community {
+  background: url(/images/community_0.png) no-repeat center 8px;
+  background-size: 20px 20px;
+}
+.nav-community-active {
+  background: url(/images/community_1.png) no-repeat center 8px;
+  background-size: 20px 20px;
+  color: #1296db;
+}
+.nav-user {
+  background: url(/images/user_0.png) no-repeat center 8px;
+  background-size: 20px 20px;
+}
+.nav-user-active {
+  background: url(/images/user_1.png) no-repeat center 8px;
+  background-size: 20px 20px;
+  color: #1296db;
+}
+.nav-more {
+  background: url(/images/more_0.png) no-repeat center 8px;
+  background-size: 20px 20px;
+}
+.nav-more-active {
+  background: url(/images/more_1.png) no-repeat center 8px;
+  background-size: 20px 20px;
+  color: #1296db;
+}

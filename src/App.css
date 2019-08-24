@@ -1,3 +1,42 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page{
+  width: 100vw;
+  min-height: 100vh;
+  /*#108ee9*/
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.none{
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*去掉谷歌浏览器Unable to preventDefault inside passive event listener due to target being treated as passive. */
+* { touch-action: pan-y; } 
+
 .App {
   text-align: center;
 }
@@ -19,8 +58,9 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.link {
+  color: #1296db;
+  font-size: 12px;
 }
 
 @keyframes App-logo-spin {
@@ -31,3 +71,37 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.avatar {
+  width: 32px!important;
+  height: 32px!important;
+  vertical-align: middle
+}
+
+.icon-m {
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle
+}
+
+.icon-s {
+  height: 12px;
+  margin-right: 5px;
+  vertical-align: middle
+}
+
+.font-s-n {
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.fc-blue {
+  color: rgb(16, 142, 233);
+}
+
