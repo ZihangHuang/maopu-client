@@ -1,8 +1,9 @@
 import React from 'react'
-import { List, InputItem, Button, Flex, Toast } from 'antd-mobile'
+import { List, InputItem, Button, Flex } from 'antd-mobile'
 import { createForm } from 'rc-form'
 // import { inject, observer } from 'mobx-react'
 import { register } from '../../../utils/proxy'
+import { toast } from '../../../utils/tools'
 
 // @inject('rootStore')
 // @observer
@@ -17,18 +18,18 @@ class Register extends React.Component {
       if (error) {
         let errKeys = Object.keys(error)
         if (errKeys.length > 0) {
-          Toast.info(error[errKeys[0]].errors[0].message)
+          toast(error[errKeys[0]].errors[0].message)
           return
         }
       }
       value.avatar = 'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'
       register(value).then(res => {
         if(res.data.code === 1) {
-          Toast.info('注册成功，快去登陆吧！', 2, () => {
+          toast('注册成功，快去登陆吧！', 2, () => {
             t.props.history.push('/user')
           })
         }else{
-          Toast.info(res.data.msg)
+          toast(res.data.msg)
         }
       })
 

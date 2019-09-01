@@ -1,5 +1,6 @@
 import React from 'react'
-import { List, InputItem, Button, Flex, Toast } from 'antd-mobile'
+import { List, InputItem, Button, Flex } from 'antd-mobile'
+import { toast } from '../../../utils/tools'
 import { createForm } from 'rc-form'
 import { inject, observer } from 'mobx-react'
 
@@ -15,7 +16,7 @@ class LoginInput extends React.Component {
       if (error) {
         let errKeys = Object.keys(error)
         if (errKeys.length > 0) {
-          Toast.info(error[errKeys[0]].errors[0].message)
+          toast(error[errKeys[0]].errors[0].message)
           return
         }
       }

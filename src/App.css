@@ -25,6 +25,14 @@ body {
   text-align: right;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
 .none{
   display: none;
 }
@@ -60,7 +68,7 @@ code {
 
 .link {
   color: #1296db;
-  font-size: 12px;
+  /*font-size: 12px;*/
 }
 
 @keyframes App-logo-spin {

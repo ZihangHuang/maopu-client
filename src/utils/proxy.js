@@ -43,3 +43,15 @@ export function deleteReply(data) {
 export function getQiniuToken(data) {
   return httpPost(api.getQiniuToken, data)
 }
+
+//消息
+export function getMessageList(data) {
+  return httpPost(api.getMessageList, data)
+}
+export function getUnReadMessagesCount(data) {
+  return httpPost(api.getUnReadMessagesCount, data)
+}
+//设置所有消息为已读
+export function setMessagesToHasRead(data) {
+  return httpPost(api.setMessagesToHasRead, data)
+}

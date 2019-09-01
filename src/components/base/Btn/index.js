@@ -15,7 +15,10 @@ function BaseBtn(props) {
 
 BaseBtn.propTypes = {
   size: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   btnName: PropTypes.string.isRequired,
   clickHandle: PropTypes.func
 }

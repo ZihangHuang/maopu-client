@@ -1,5 +1,6 @@
 import moment from 'moment'
 import 'moment/locale/zh-cn'
+import { Toast } from 'antd-mobile'
 
 moment.locale('zh-cn')
 
@@ -19,6 +20,10 @@ export function getFormatDate(fromNow) {
   } else {
     return moment().format('YYYY-MM-DD HH:mm')
   }
+}
+
+export function toast(text) {
+  Toast.info(text, 2, null, false)
 }
 
 export function fileToBase64(file) {

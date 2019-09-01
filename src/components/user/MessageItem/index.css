@@ -1,0 +1,15 @@
+.title-bar {
+  display: flex;
+  line-height: 16px;
+}
+.title-bar .link {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.title-bar .time{
+  margin-left: auto;
+  font-size: 12px;
+  color: #515151;
+}

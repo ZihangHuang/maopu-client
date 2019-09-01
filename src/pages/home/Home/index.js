@@ -1,5 +1,6 @@
 import React from 'react'
 import TopBar from '../../../components/layout/TopBar'
+import BottomBar from '../../../components/layout/BottomBar'
 // import { inject, observer } from 'mobx-react'
 
 // @inject('rootStore')
@@ -13,6 +14,7 @@ class Home extends React.Component {
   render() {
     return <div>
       <TopBar />
+      <BottomBar />
     </div>
   }
 }

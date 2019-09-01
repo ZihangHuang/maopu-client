@@ -1,6 +1,7 @@
 import React from 'react'
 // import { inject, observer } from 'mobx-react'
 import TopBar from '../../../components/layout/TopBar'
+import BottomBar from '../../../components/layout/BottomBar'
 import { ListView } from 'antd-mobile'
 import { getTopicList } from '../../../utils/proxy'
 
@@ -178,6 +179,7 @@ class Community extends React.Component {
           onEndReached={this.onEndReached}
           onEndReachedThreshold={10}
         />
+        <BottomBar />
       </div>
     )
   }

@@ -174,10 +174,10 @@ class MyEditor extends React.Component {
   
   render() {
     return (
-      <div style={{background: '#e6e6e6'}}>
+      <div className="my-editor">
         <EditBar insertLink={this.insertLink} insertImage={this.insertImage}/>
         <Editor
-          style={{background: '#fff', overflow: 'hidden', padding: '15px 0 15px 15px '}}
+          className="editor"
           plugins={plugins}
           ref={this.ref}
           value={this.state.value}

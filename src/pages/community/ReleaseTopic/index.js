@@ -3,12 +3,12 @@ import {
   List,
   // TextareaItem,
   NavBar,
-  Toast,
   InputItem,
   Picker,
 } from 'antd-mobile'
 import { createForm } from 'rc-form'
 import { releaseTopic } from '../../../utils/proxy'
+import { toast } from '../../../utils/tools'
 import { tabs } from '../../../config'
 import MyEditor from '../../../components/layout/MyEditor'
 
@@ -37,13 +37,13 @@ class ReleaseText extends React.Component {
       if (error) {
         let errKeys = Object.keys(error)
         if (errKeys.length > 0) {
-          Toast.info(error[errKeys[0]].errors[0].message)
+          toast(error[errKeys[0]].errors[0].message)
           return
         }
       }
       let content = t.state.content
       if(!content) {
-        Toast.info('不能发表空白内容哦')
+        toast('不能发表空白内容哦')
         return
       }
       let postData = {
@@ -53,7 +53,7 @@ class ReleaseText extends React.Component {
       }
       releaseTopic(postData).then(res => {
         if (res.data.code === 1) {
-          Toast.info('发布成功', 2, () => {
+          toast('发布成功', 2, () => {
             t.props.history.push('/community')
           })
         }

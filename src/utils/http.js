@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
+import { toast } from './tools'
 import { storageName } from '../config'
 import RootStore from '../store'
 import { api } from '../config'
@@ -31,7 +32,7 @@ axios.interceptors.request.use(
   },
   function(error) {
     Toast.hide()
-    Toast.info('网络异常')
+    toast('网络异常')
     return Promise.reject(error)
   }
 )
@@ -41,13 +42,13 @@ axios.interceptors.response.use(
     Toast.hide()
     let data = response.data
     if(data && data.code !== 1 && data.msg) {
-      Toast.info(data.msg, 2, null, false)
+      toast(data.msg, 2, null, false)
     }
     return response
   },
   function(error) {
     Toast.hide()
-    Toast.info('网络异常')
+    toast('网络异常')
     return Promise.reject(error)
   }
 )

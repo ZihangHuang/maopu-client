@@ -1,6 +1,6 @@
 // const domain = 'http://192.168.17.182:8889'
-const domain = 'http://192.168.0.101:8889'
-// const domain = 'http://localhost:8889'
+// const domain = 'http://192.168.0.101:8889'
+const domain = 'http://localhost:8889'
 
 export const api = {
   domain,
@@ -18,7 +18,11 @@ export const api = {
   getReplyList: domain + '/reply/list',
   deleteReply: domain + '/reply/delete',
 
-  getQiniuToken: domain + '/base/getQiniuToken'
+  getQiniuToken: domain + '/base/getQiniuToken',
+
+  getMessageList: domain + '/message/list',
+  getUnReadMessagesCount: domain + '/message/list/unread',
+  setMessagesToHasRead: domain + '/message/set/hasread'
 }
 
 export const tabs = {

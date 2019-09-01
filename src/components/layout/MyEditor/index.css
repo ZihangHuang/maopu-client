@@ -3,3 +3,12 @@
   width: 100%;
   box-shadow: 0 0 0 2px blue;
 }
+.my-editor {
+  overflow: hidden;
+}
+.editor {
+  border-top: 1px solid #ccc;
+  background: #fff;
+  margin: 0 15px 15px 15px;
+  text-indent: 2em;
+}

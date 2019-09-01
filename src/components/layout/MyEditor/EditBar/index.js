@@ -1,8 +1,8 @@
 import React from 'react'
-import { Modal, InputItem, Toast } from 'antd-mobile'
+import { Modal, InputItem } from 'antd-mobile'
 import PropTypes from 'prop-types'
 import BaseBtn from '../../../base/Btn'
-import { fileToBase64 } from '../../../../utils/tools'
+import { fileToBase64, toast } from '../../../../utils/tools'
 import { getQiniuToken } from '../../../../utils/proxy'
 import { uploadBase64 } from '../../../../utils/qiniu-handle'
 import './index.css'
@@ -69,11 +69,11 @@ export default class EditBar extends React.Component {
   fileHandle = e => {
     let file = e.target.files[0]
     if (!/image\/\w+/.test(file.type)) {
-      Toast.info('文件必须为图片！')
+      toast('文件必须为图片！')
       return
     }
     if (file.size > 1024 * 1024 * 5) {
-      Toast.info(file.name + '这个文件大于5M！请重新选择！')
+      toast(file.name + '这个文件大于5M！请重新选择！')
       return
     }
     let t = this
@@ -83,7 +83,7 @@ export default class EditBar extends React.Component {
           let imageUrl = t.domain + '/' + res.data.key
           this.props.insertImage(imageUrl)
         } else {
-          Toast.info('插入图片失败')
+          toast('插入图片失败')
         }
       })
     })

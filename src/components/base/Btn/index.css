@@ -21,8 +21,8 @@
 
 .btn-x {
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   vertical-align: middle;
 }
 
@@ -33,6 +33,7 @@
 .icon-picture {
   background: url(/images/picture.png) no-repeat center center;
   background-size: contain;
+  background-position: 0 1px;
 }
 .icon-link {
   background: url(/images/link.png) no-repeat center center;
@@ -40,5 +41,10 @@
 }
 .icon-upload-picture {
   background: url(/images/upload-picture.png) no-repeat center center;
+  background-size: contain;
+  background-position: 0 2px;
+}
+.icon-message {
+  background: url(/images/message.png) no-repeat center center;
   background-size: contain;
 }

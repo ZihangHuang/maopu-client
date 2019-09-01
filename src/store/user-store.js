@@ -21,20 +21,20 @@ class UserStore {
   @action.bound
   checkLogin(isGetUser) {
     let t = this
-    if(t.token) {
-      //是否更新用户信息
-      if(isGetUser) {
-        t.getUserInfoByToken()
+    if (t.token) {
+      //如果已经登录了，是否更新用户信息
+      if (isGetUser) {
+        return t.getUserInfoByToken()
       }
-      return
     }
-    authentication().then(res => {
+
+    return authentication().then(res => {
       if (res.data.code === 1) {
         runInAction(() => {
           let token = localStorage.getItem(storageName)
           t.token = token
-          t.getUserInfoByToken()
         })
+        return t.getUserInfoByToken()
       }
     })
   }
@@ -68,7 +68,8 @@ class UserStore {
     _id: '',
     nickname: '还没想好名字',
     username: '',
-    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg',
     email: '',
     level: 1,
     reputation: 0,
@@ -77,12 +78,13 @@ class UserStore {
   @action.bound
   getUserInfoByToken() {
     let t = this
-    httpPost(api.getUser, {}).then(res => {
+    return httpPost(api.getUser, {}).then(res => {
       if (res.data.code !== 1) return
       runInAction(() => {
         let userInfo = res.data.data
         t.userInfo = { ...t.userInfo, ...userInfo }
       })
+      return t.userInfo
     })
   }
 }

@@ -8,8 +8,8 @@ import {
 import BaseTitleCard from '../../../components/base/TitleCard'
 import BaseBtn from '../../../components/base/Btn'
 import BaseLoadMore from '../../../components/base/LoadMore'
-import { setFormatDate } from '../../../utils/tools'
-import { Modal, TextareaItem, Toast, Badge } from 'antd-mobile'
+import { setFormatDate, toast } from '../../../utils/tools'
+import { Modal, TextareaItem, Badge } from 'antd-mobile'
 import { inject, observer } from 'mobx-react'
 import './index.css'
 
@@ -122,7 +122,7 @@ class TopicDetail extends React.Component {
 
   replySubmit = () => {
     if (!this.state.replyText) {
-      Toast.info('请输入内容哦……', 2, null, false)
+      toast('请输入内容哦……', 2, null, false)
       return
     }
     // console.log('text:', this.state.replyText)
@@ -140,13 +140,13 @@ class TopicDetail extends React.Component {
     this.onClose()
     addReply(data).then(res => {
       if (res.data.code === 1) {
-        Toast.info('评论成功')
+        toast('评论成功')
         this.setState({
           replies: [...this.state.replies, res.data.data],
           replyText: ''
         })
       } else {
-        Toast.info(res.data.msg)
+        toast(res.data.msg)
       }
     })
   }
@@ -157,12 +157,12 @@ class TopicDetail extends React.Component {
       replyId
     }).then(res => {
       if (res.data.code === 1) {
-        Toast.info('删除成功')
+        toast('删除成功')
         t.setState({
           replies: [...t.state.replies.slice(0, i), ...t.state.replies.slice(i + 1)]
         })
       } else {
-        Toast.info(res.data.msg)
+        toast(res.data.msg)
       }
     })
   }

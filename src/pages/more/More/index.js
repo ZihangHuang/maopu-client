@@ -1,5 +1,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import BottomBar from '../../../components/layout/BottomBar'
 
 @inject('rootStore')
 @observer
@@ -11,7 +12,10 @@ class More extends React.Component {
 
   render() {
     return (
-      <div>More</div>
+      <div>
+        More
+        <BottomBar />
+      </div>
     )
   }
 }

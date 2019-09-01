@@ -1,0 +1,9 @@
+.btn-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+}

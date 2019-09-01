@@ -1,8 +1,9 @@
 import React from 'react'
-import { List, InputItem, Button, Flex, Toast, ImagePicker } from 'antd-mobile'
+import { List, InputItem, Button, Flex, ImagePicker } from 'antd-mobile'
 import { createForm } from 'rc-form'
 import { inject, observer } from 'mobx-react'
 import { updateUser, getQiniuToken } from '../../../utils/proxy'
+import { toast } from '../../../utils/tools'
 import { uploadBase64 } from '../../../utils/qiniu-handle'
 
 const Item = List.Item
@@ -33,7 +34,7 @@ class UserEdit extends React.Component {
       if (error) {
         let errKeys = Object.keys(error)
         if (errKeys.length > 0) {
-          Toast.info(error[errKeys[0]].errors[0].message)
+          toast(error[errKeys[0]].errors[0].message)
           return
         }
       }
@@ -42,11 +43,11 @@ class UserEdit extends React.Component {
 
       updateUser(value).then(res => {
         if(res.data.code === 1) {
-          Toast.info('修改个人信息成功！', 2, () => {
+          toast('修改个人信息成功！', 2, () => {
             t.props.history.push('/user')
           })
         }else{
-          Toast.info(res.data.msg)
+          toast(res.data.msg)
         }
       })
 
@@ -65,7 +66,7 @@ class UserEdit extends React.Component {
   uploadAvatar = () => {
     let t = this
     if(t.state.files.length < 1) {
-      return Toast.info('请先选择图片')
+      return toast('请先选择图片')
     }
     let img = t.state.files[0]
     //let key = img.file.name
@@ -83,7 +84,7 @@ class UserEdit extends React.Component {
               files: [],
               selectable: true
             })
-            Toast.info('上传成功')
+            toast('上传成功')
           }
         })
       }
