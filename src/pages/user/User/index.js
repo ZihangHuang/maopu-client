@@ -19,15 +19,17 @@ class MyPage extends React.Component {
     let t = this
     let { userStore } = t.props.rootStore
     userStore.checkLogin(true).then(userInfo => {
-      getUnReadMessagesCount({
-        userId: userInfo._id
-      }).then(res => {
-        if (res.data.code === 1) {
-          t.setState({
-            unReadMessagesCount: res.data.data.count
-          })
-        }
-      })
+      if (userInfo) {
+        getUnReadMessagesCount({
+          userId: userInfo._id
+        }).then(res => {
+          if (res.data.code === 1) {
+            t.setState({
+              unReadMessagesCount: res.data.data.count
+            })
+          }
+        })
+      }
     })
   }
   logout = () => {
@@ -43,7 +45,14 @@ class MyPage extends React.Component {
       <div>
         <div className="btn-bar">
           <Badge text={unReadMessagesCount} overflowCount={10}>
-            <BaseBtn btnName="icon-message" size="btn-x" href={{ pathname: '/message', state: { isSetHasRead: unReadMessagesCount ? true : false } }} />
+            <BaseBtn
+              btnName="icon-message"
+              size="btn-x"
+              href={{
+                pathname: '/message',
+                state: { isSetHasRead: unReadMessagesCount ? true : false }
+              }}
+            />
           </Badge>
         </div>
         <WingBlank>

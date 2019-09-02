@@ -22,8 +22,14 @@ export function getFormatDate(fromNow) {
   }
 }
 
-export function toast(text) {
-  Toast.info(text, 2, null, false)
+/**
+ * @param  {[type]}   text     [提示内容]
+ * @param  {Number}   duration [自动关闭的延时，单位秒]
+ * @param  {Function} cb       [关闭后回调]
+ * @param  {Boolean}  mask     [是否显示透明蒙层，防止触摸穿透]
+ */
+export function toast(text, duration = 2, cb = null, mask = false) {
+  Toast.info(text, duration, cb, mask)
 }
 
 export function fileToBase64(file) {

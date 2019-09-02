@@ -5,6 +5,8 @@ import { createForm } from 'rc-form'
 import { register } from '../../../utils/proxy'
 import { toast } from '../../../utils/tools'
 
+const usernameReg = /^[a-zA-Z]\w{3,11}$/
+
 // @inject('rootStore')
 // @observer
 class Register extends React.Component {
@@ -22,6 +24,17 @@ class Register extends React.Component {
           return
         }
       }
+
+      if(!usernameReg.test(value.username)) {
+        toast('用户名首字为英文字母，总长度不能不少于4位')
+        return
+      }
+      if(value.password.length < 6) {
+        toast('密码总长度不能不少于6位')
+        return
+      }
+      
+
       value.avatar = 'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'
       register(value).then(res => {
         if(res.data.code === 1) {
@@ -49,7 +62,7 @@ class Register extends React.Component {
               // initialValue: '',
               rules: [{ required: true, message: '请输入用户名' }]
             })}
-            placeholder="用户名"
+            placeholder="用户名，首字为英文字母，总长度不少于4位"
             type="text"
           >
             用户名
@@ -59,7 +72,7 @@ class Register extends React.Component {
               rules: [{ required: true, message: '请输入密码' }]
             })}
             type="password"
-            placeholder="密码"
+            placeholder="密码，总长度不少于6位"
           >
             密码
           </InputItem>

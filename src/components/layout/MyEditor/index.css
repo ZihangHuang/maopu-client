@@ -1,7 +1,6 @@
 .con-image {
   display: block;
   width: 100%;
-  box-shadow: 0 0 0 2px blue;
 }
 .my-editor {
   overflow: hidden;
