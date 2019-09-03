@@ -4,12 +4,7 @@ import TopBar from '../../../components/layout/TopBar'
 import BottomBar from '../../../components/layout/BottomBar'
 import { ListView } from 'antd-mobile'
 import { getTopicList } from '../../../utils/proxy'
-
-const tabs = {
-  news: '新闻',
-  street: '步行街',
-  default: '话题圈'
-}
+import TopicItem from '../../../components/community/TopicItem'
 
 class Community extends React.Component {
   constructor(props) {
@@ -109,51 +104,7 @@ class Community extends React.Component {
       }
       const obj = this.state.dataList[index++]
       return (
-        <div key={rowID} style={{ padding: '0 15px' }} onClick={this.goTopicDetail.bind(this, obj._id)}>
-          <div
-            style={{
-              paddingTop: '5px'
-            }}
-          >
-            <div>
-              <img
-                style={{
-                  height: '12px',
-                  marginRight: '10px',
-                  borderRadius: '2px',
-                  verticalAlign: 'middle'
-                }}
-                src={obj.author.avatar}
-                alt=""
-              />
-              <span
-                style={{
-                  fontSize: '12px',
-                  color: '#707070',
-                  marginRight: '10px'
-                }}
-              >
-                {tabs[obj.tab]}
-              </span>
-              <span className="font-s-n">
-                {obj.author.nickname}
-              </span>
-            </div>
-            <div style={{ lineHeight: 1, padding: '5px 0' }}>
-              <div style={{ marginTop: '2px' }}>{obj.title}</div>
-              <div>
-                <img
-                  className="icon-s"
-                  src="/images/comment.png"
-                  alt=""
-                />
-                <span className="font-s-n">
-                  {obj.replyCount}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TopicItem key={rowID} obj={obj}/>
       )
     }
     return (

@@ -11,8 +11,8 @@ import rootStore from './store/index'
 import Home from './pages/home/Home'
 
 import Community from './pages/community/Community'
-import ReleaseTopic from './pages/community/ReleaseTopic'
-import TopicDetail from './pages/community/TopicDetail'
+import ReleaseTopic from './pages/topic/ReleaseTopic'
+import TopicDetail from './pages/topic/TopicDetail'
 
 import User from './pages/user/User'
 import Login from './pages/user/Login'

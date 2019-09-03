@@ -1,5 +1,4 @@
 // const domain = 'http://192.168.18.122:8889'
-// const domain = 'http://192.168.0.101:8889'
 const domain = 'http://localhost:8889'
 
 export const api = {
