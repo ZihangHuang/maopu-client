@@ -9,6 +9,7 @@ import BaseTitleCard from '../../../components/base/TitleCard'
 import BaseBtn from '../../../components/base/Btn'
 import BaseLoadMore from '../../../components/base/LoadMore'
 import { setFormatDate, toast } from '../../../utils/tools'
+import { tabs } from '../../../config'
 import { Modal, TextareaItem, Badge } from 'antd-mobile'
 import { inject, observer } from 'mobx-react'
 import './index.css'
@@ -221,9 +222,11 @@ class TopicDetail extends React.Component {
         <div className="no-reply">暂无评论</div>
       )
 
+    const tabName = topic.isNews ? '猫扑新闻' : tabs[topic.tab]
+
     return (
       <div className="topic-container">
-        <div className="tab-title">话题圈</div>
+        <div className="tab-title">{tabName}</div>
         <BaseTitleCard
           avatar={author.avatar}
           nickname={author.nickname}

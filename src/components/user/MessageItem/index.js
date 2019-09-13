@@ -6,6 +6,20 @@ import './index.css'
 const history = createHashHistory()
 
 export default function MessageItem(props) {
+  if (!props.reply) {
+    return (
+      <div
+        style={{
+          padding: '10px',
+          borderBottom: '1px solid #ccc',
+          textAlign: 'center'
+        }}
+      >
+        该评论已经被删除了
+      </div>
+    )
+  }
+
   let type = props.type || 'reply2' //reply:帖子一级回复，reply2:二级回复
 
   let author = props.reply.author
@@ -23,9 +37,7 @@ export default function MessageItem(props) {
       <div>
         <div className="title-bar ">
           [帖子]<span className="link">{topic.title}</span>提到了你
-          <span className="time">
-            {props.createTime}
-          </span>
+          <span className="time">{props.createTime}</span>
         </div>
         <div style={{ display: 'flex', lineHeight: '16px', paddingTop: '5px' }}>
           <img
@@ -49,7 +61,9 @@ export default function MessageItem(props) {
               }}
             >
               <div>
-                引用 @<span className="link">{props.reply1.author.nickname}</span>发表的
+                引用 @
+                <span className="link">{props.reply1.author.nickname}</span>
+                发表的
               </div>
               <div>{props.reply1.content}</div>
             </div>
@@ -62,9 +76,7 @@ export default function MessageItem(props) {
     item = (
       <div className="title-bar">
         [帖子]<span className="link">{topic.title}</span>新增一回复
-        <span className="time ">
-          {props.createTime}
-        </span>
+        <span className="time ">{props.createTime}</span>
       </div>
     )
   }

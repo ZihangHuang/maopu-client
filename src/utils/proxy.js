@@ -27,6 +27,13 @@ export function getTopicList(data) {
 export function getTopicDetail(data) {
   return httpPost(api.getTopicDetail, data)
 }
+//新闻
+export function getNewsList(data) {
+  return httpPost(api.getNewsList, data)
+}
+export function getNewsHasFocusPic(data) {
+  return httpPost(api.getNewsHasFocusPic, data)
+}
 
 //评论&回复
 export function addReply(data) {
