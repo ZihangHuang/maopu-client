@@ -13,7 +13,7 @@ class More extends React.Component {
   render() {
     return (
       <div>
-        More
+        <h1>暂无内容</h1>
         <BottomBar />
       </div>
     )

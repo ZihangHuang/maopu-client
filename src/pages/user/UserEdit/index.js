@@ -56,7 +56,7 @@ class UserEdit extends React.Component {
   
   //上传图片组件句柄
   onChange = (files, type, index) => {
-    console.log(files, type, index)
+    //console.log(files, type, index)
     this.setState({
       files,
       selectable: type === 'remove' ? true : false
@@ -76,6 +76,7 @@ class UserEdit extends React.Component {
       if(res.data.code === 1) {
         let data = res.data.data
         t.domain = data.domain
+        
         uploadBase64(data.token, img.url, size).then(res2 => {
           //console.log(res2)
           if(res2.data.key) {

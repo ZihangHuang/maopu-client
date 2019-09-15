@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import TopBar from '../../../components/layout/TopBar'
 import BottomBar from '../../../components/layout/BottomBar'
 import NewsItem from '../../../components/home/NewsItem'
 import BaseLoadMore from '../../../components/base/LoadMore'
 import { Carousel } from 'antd-mobile'
-import { getNewsList } from '../../../utils/proxy'
+import { getNewsList, getNewsHasFocusPic } from '../../../utils/proxy'
 // import { inject, observer } from 'mobx-react'
 
 // @inject('rootStore')
@@ -12,7 +13,7 @@ import { getNewsList } from '../../../utils/proxy'
 class Home extends React.Component {
   state = {
     newsList: [],
-    data: ['1', '2', '3'],
+    focusList: [],
     imgHeight: 176,
     isLoading: false,
     hasMore: true
@@ -31,8 +32,20 @@ class Home extends React.Component {
         ]
       })
     }, 100)
-
+    
+    this.getNewsHasFocusPic()
     this.getNewsList()
+  }
+
+  getNewsHasFocusPic() {
+    let t = this
+    getNewsHasFocusPic().then(res => {
+      if (res.data.code === 1) {
+        t.setState({
+          focusList: res.data.data.list
+        })
+      }
+    })
   }
 
   getNewsList() {
@@ -61,7 +74,7 @@ class Home extends React.Component {
   }
 
   render() {
-    let newsList = this.state.newsList.map(v => <NewsItem info={v} />)
+    let newsList = this.state.newsList.map(v => <NewsItem info={v} key={v._id}/>)
 
     return (
       <div className="home">
@@ -74,10 +87,10 @@ class Home extends React.Component {
           }
           afterChange={index => console.log('slide to', index)}
         >
-          {this.state.data.map(val => (
-            <a
-              key={val}
-              href=""
+          {this.state.focusList.map(val => (
+            <Link
+              key={val._id}
+              to={`/topic/detail/${val._id}`}
               style={{
                 display: 'inline-block',
                 width: '100%',
@@ -85,7 +98,7 @@ class Home extends React.Component {
               }}
             >
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                src={val.focusPic}
                 alt=""
                 style={{ width: '100%', verticalAlign: 'top' }}
                 onLoad={() => {
@@ -94,7 +107,7 @@ class Home extends React.Component {
                   this.setState({ imgHeight: 'auto' })
                 }}
               />
-            </a>
+            </Link>
           ))}
         </Carousel>
         {newsList}

@@ -67,7 +67,11 @@ export default class EditBar extends React.Component {
   }
   
   fileHandle = e => {
-    let file = e.target.files[0]
+    let target = e.target
+    if(target.files.length < 1) {
+      return
+    }
+    let file = target.files[0]
     if (!/image\/\w+/.test(file.type)) {
       toast('文件必须为图片！')
       return
@@ -76,6 +80,7 @@ export default class EditBar extends React.Component {
       toast(file.name + '这个文件大于5M！请重新选择！')
       return
     }
+    
     let t = this
     fileToBase64(file).then(base64Str => {
       uploadBase64(t.qiniuToken, base64Str, file.size).then(res => {
@@ -83,8 +88,12 @@ export default class EditBar extends React.Component {
           let imageUrl = t.domain + '/' + res.data.key
           this.props.insertImage(imageUrl)
         } else {
-          toast('插入图片失败')
+          toast('上传图片失败')
+          target.value = ''
         }
+      }).catch(err => {
+        target.value = ''
+        //console.log('上传发生错误：', err)
       })
     })
   }

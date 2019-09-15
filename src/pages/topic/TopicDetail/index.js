@@ -227,6 +227,7 @@ class TopicDetail extends React.Component {
     return (
       <div className="topic-container">
         <div className="tab-title">{tabName}</div>
+        <div className="topic-title">{topic.title}</div>
         <BaseTitleCard
           avatar={author.avatar}
           nickname={author.nickname}

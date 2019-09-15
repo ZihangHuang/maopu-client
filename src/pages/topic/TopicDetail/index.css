@@ -8,6 +8,11 @@
   font-size: 18px;
   color: #707070;
 }
+.topic-title {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 20px;
+}
 .topic-content {
   margin: 10px 0 30px;
   text-indent: 2em;
