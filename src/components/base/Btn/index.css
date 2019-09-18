@@ -27,24 +27,24 @@
 }
 
 .icon-release {
-  background: url(/images/release.png) no-repeat center center;
+  background: url(../../../assets/images/release.png) no-repeat center center;
   background-size: cover;
 }
 .icon-picture {
-  background: url(/images/picture.png) no-repeat center center;
+  background: url(../../../assets/images/picture.png) no-repeat center center;
   background-size: contain;
   background-position: 0 1px;
 }
 .icon-link {
-  background: url(/images/link.png) no-repeat center center;
+  background: url(../../../assets/images/link.png) no-repeat center center;
   background-size: contain;
 }
 .icon-upload-picture {
-  background: url(/images/upload-picture.png) no-repeat center center;
+  background: url(../../../assets/images/upload-picture.png) no-repeat center center;
   background-size: contain;
   background-position: 0 2px;
 }
 .icon-message {
-  background: url(/images/message.png) no-repeat center center;
+  background: url(../../../assets/images/message.png) no-repeat center center;
   background-size: contain;
 }

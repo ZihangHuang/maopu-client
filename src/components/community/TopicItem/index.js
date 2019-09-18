@@ -2,6 +2,7 @@ import React from 'react'
 import { tabs } from '../../../config'
 import PropTypes from 'prop-types'
 import { createHashHistory } from 'history'
+import commentSrc from '../../../assets/images/comment.png'
 const history = createHashHistory()
 
 export default function TopicItem(props) {
@@ -46,7 +47,7 @@ export default function TopicItem(props) {
         <div style={{ lineHeight: 1, padding: '5px 0' }}>
           <div style={{ marginTop: '2px' }}>{obj.title}</div>
           <div>
-            <img className="icon-s" src="/images/comment.png" alt="" />
+            <img className="icon-s" src={commentSrc} alt="" />
             <span className="font-s-n">{obj.replyCount}</span>
           </div>
         </div>

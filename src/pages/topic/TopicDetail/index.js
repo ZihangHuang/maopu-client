@@ -13,6 +13,7 @@ import { tabs } from '../../../config'
 import { Modal, TextareaItem, Badge } from 'antd-mobile'
 import { inject, observer } from 'mobx-react'
 import './index.css'
+import replySrc from '../../../assets/images/reply.png'
 
 @inject('rootStore')
 @observer
@@ -196,7 +197,7 @@ class TopicDetail extends React.Component {
                   删除
                 </span>
                 <img
-                  src="/images/reply.png"
+                  src={replySrc}
                   alt=""
                   className="icon-m reply2-add-btn"
                   title="回复"

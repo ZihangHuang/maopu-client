@@ -75,8 +75,9 @@ export default function MessageItem(props) {
   } else if (type === 'reply') {
     item = (
       <div className="title-bar">
-        [帖子]<span className="link">{topic.title}</span>新增一回复
-        <span className="time ">{props.createTime}</span>
+        [帖子]<span className="link">{topic.title}</span>
+        <span className="tips">[新增一回复]</span>
+        <span className="time">{props.createTime}</span>
       </div>
     )
   }

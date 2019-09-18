@@ -18,6 +18,10 @@
   text-indent: 2em;
   line-height: 20px;
 }
+.topic-content img{
+  display: block;
+  width: 100%;
+}
 .reply-nav {
   display: flex;
   align-items: center;

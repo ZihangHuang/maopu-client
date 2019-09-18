@@ -7,6 +7,7 @@ import BaseLoadMore from '../../../components/base/LoadMore'
 import { Carousel } from 'antd-mobile'
 import { getNewsList, getNewsHasFocusPic } from '../../../utils/proxy'
 // import { inject, observer } from 'mobx-react'
+import './index.css'
 
 // @inject('rootStore')
 // @observer
@@ -14,7 +15,6 @@ class Home extends React.Component {
   state = {
     newsList: [],
     focusList: [],
-    imgHeight: 176,
     isLoading: false,
     hasMore: true
   }
@@ -80,21 +80,25 @@ class Home extends React.Component {
       <div className="home">
         <TopBar />
         <Carousel
-          autoplay={false}
+          autoplay
+          autoplayInterval={3000}
           infinite
-          beforeChange={(from, to) =>
-            console.log(`slide from ${from} to ${to}`)
-          }
-          afterChange={index => console.log('slide to', index)}
+          dotStyle={{
+            background: '#ccc'
+          }}
+          dotActiveStyle={{
+            background: '#fff'
+          }}
         >
           {this.state.focusList.map(val => (
             <Link
               key={val._id}
               to={`/topic/detail/${val._id}`}
               style={{
+                position: 'relative',
                 display: 'inline-block',
                 width: '100%',
-                height: this.state.imgHeight
+                height: 250
               }}
             >
               <img
@@ -107,6 +111,7 @@ class Home extends React.Component {
                   this.setState({ imgHeight: 'auto' })
                 }}
               />
+              <p className="carousel-text">{val.title}</p>
             </Link>
           ))}
         </Carousel>

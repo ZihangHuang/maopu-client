@@ -3,10 +3,13 @@
   line-height: 16px;
 }
 .title-bar .link {
-  max-width: 200px;
+  width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.title-bar .tips {
+  margin-left: auto;
 }
 .title-bar .time{
   margin-left: auto;

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { createHashHistory } from 'history'
 import './index.css'
+import commentSrc from '../../../assets/images/comment.png'
 
 const history = createHashHistory()
 
@@ -18,7 +19,7 @@ export default function NewsItem(props) {
         {info.title}
       </div>
       <div>
-        <img className="icon-s" src="/images/comment.png" alt="" />
+        <img className="icon-s" src={commentSrc} alt="" />
         <span className="font-s-n">{info.replyCount}</span>
       </div>
     </div>
