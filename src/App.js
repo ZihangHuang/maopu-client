@@ -5,22 +5,34 @@ import { Provider } from 'mobx-react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import AuthRouter from './AuthRouter'
 import rootStore from './store/index'
+import asyncComponent from './components/core/asyncComponent'
 
-// import BottomBar from './components/layout/BottomBar'
+//普通加载
+// import Home from './pages/home/Home'
+// import Community from './pages/community/Community'
+// import ReleaseTopic from './pages/topic/ReleaseTopic'
+// import TopicDetail from './pages/topic/TopicDetail'
+// import User from './pages/user/User'
+// import Login from './pages/user/Login'
+// import Register from './pages/user/Register'
+// import UserEdit from './pages/user/UserEdit'
+// import Message from './pages/user/Message'
+// import More from './pages/more/More'
 
-import Home from './pages/home/Home'
+//路由懒加载
+const Home = asyncComponent(() => import('./pages/home/Home'))
 
-import Community from './pages/community/Community'
-import ReleaseTopic from './pages/topic/ReleaseTopic'
-import TopicDetail from './pages/topic/TopicDetail'
+const Community = asyncComponent(() => import('./pages/community/Community'))
+const ReleaseTopic = asyncComponent(() => import('./pages/topic/ReleaseTopic'))
+const TopicDetail = asyncComponent(() => import('./pages/topic/TopicDetail'))
 
-import User from './pages/user/User'
-import Login from './pages/user/Login'
-import Register from './pages/user/Register'
-import UserEdit from './pages/user/UserEdit'
-import Message from './pages/user/Message'
+const User = asyncComponent(() => import('./pages/user/User'))
+const Login = asyncComponent(() => import('./pages/user/Login'))
+const Register = asyncComponent(() => import('./pages/user/Register'))
+const UserEdit = asyncComponent(() => import('./pages/user/UserEdit'))
+const Message = asyncComponent(() => import('./pages/user/Message'))
 
-import More from './pages/more/More'
+const More = asyncComponent(() => import('./pages/more/More'))
 
 function App() {
   return (

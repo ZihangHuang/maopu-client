@@ -61,4 +61,3 @@ export const schema = {
     },
   },
 }
-//http://img3.imgtn.bdimg.com/it/u=208295833,373079534&fm=26&gp=0.jpg
