@@ -10,7 +10,7 @@ import { authentication } from './utils/proxy'
 
 @inject('rootStore')
 @observer
-class AuthRouter extends Component {
+class AuthRoute extends Component {
   constructor(props) {
     super(props)
   }
@@ -44,4 +44,4 @@ class AuthRouter extends Component {
   }
 }
 
-export default withRouter(AuthRouter)
+export default withRouter(AuthRoute)

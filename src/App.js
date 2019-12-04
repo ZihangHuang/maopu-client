@@ -3,7 +3,7 @@ import React from 'react'
 import './App.css'
 import { Provider } from 'mobx-react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import AuthRouter from './AuthRouter'
+import AuthRoute from './AuthRoute'
 import rootStore from './store/index'
 import asyncComponent from './components/core/asyncComponent'
 
@@ -44,10 +44,10 @@ function App() {
           <Route path="/user" exact component={User} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <AuthRouter path="/more" component={More} />
-          <AuthRouter path="/user/edit" component={UserEdit} />
-          <AuthRouter path="/topic/release" component={ReleaseTopic} />
-          <AuthRouter path="/message" component={Message} />
+          <AuthRoute path="/more" component={More} />
+          <AuthRoute path="/user/edit" component={UserEdit} />
+          <AuthRoute path="/topic/release" component={ReleaseTopic} />
+          <AuthRoute path="/message" component={Message} />
           <Route path="/topic/detail/:id" component={TopicDetail} />
           <Route path="" component={() => '进入了知识的荒原'} />
         </Switch>
