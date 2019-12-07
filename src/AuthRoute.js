@@ -11,9 +11,6 @@ import { authentication } from './utils/proxy'
 @inject('rootStore')
 @observer
 class AuthRoute extends Component {
-  constructor(props) {
-    super(props)
-  }
   componentDidMount() {
     let t = this
     let { userStore } = t.props.rootStore

@@ -2,12 +2,10 @@ import { observable, action, computed, runInAction, configure } from 'mobx'
 import { api, storageName } from '../config'
 import { httpPost } from '../utils/http'
 import { authentication } from '../utils/proxy'
-import { createHashHistory } from 'history'
+import history from '../history'
 
 // configure({ enforceActions: 'observed' })
 configure({ enforceActions: 'always' })
-
-const history = createHashHistory()
 
 class UserStore {
   constructor(rootStore) {

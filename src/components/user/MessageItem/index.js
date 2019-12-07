@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { createHashHistory } from 'history'
+import { withRouter } from 'react-router-dom'
 import './index.css'
 
-const history = createHashHistory()
-
-export default function MessageItem(props) {
+function MessageItem(props) {
   if (!props.reply) {
     return (
       <div
@@ -83,7 +81,7 @@ export default function MessageItem(props) {
   }
 
   const goTopicDetail = () => {
-    history.push(`/topic/detail/${props.topic._id}`)
+    props.history.push(`/topic/detail/${props.topic._id}`)
   }
 
   return (
@@ -106,3 +104,5 @@ MessageItem.propTypes = {
   reply: PropTypes.object.isRequired,
   reply1: PropTypes.object //如果type是reply2（二级回复），则存在reply1
 }
+
+export default withRouter(MessageItem)

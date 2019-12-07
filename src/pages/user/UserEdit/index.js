@@ -165,7 +165,6 @@ class UserEdit extends React.Component {
             <ImagePicker
               files={files}
               onChange={this.onChange}
-              selectable={files.length < 7}
               multiple={false}
               selectable={this.state.selectable}
               disableDelete={this.state.disableDelete}

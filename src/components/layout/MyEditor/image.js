@@ -52,6 +52,7 @@ export const schema = {
           const paragraph = Block.create('paragraph')
           return editor.insertNodeByKey(node.key, node.nodes.size, paragraph)
         }
+        default:
       }
     },
   },

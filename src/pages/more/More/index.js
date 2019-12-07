@@ -5,9 +5,6 @@ import BottomBar from '../../../components/layout/BottomBar'
 @inject('rootStore')
 @observer
 class More extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   componentDidMount() {}
 
   render() {

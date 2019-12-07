@@ -7,7 +7,7 @@ function TopBar() {
   return (
     <NavBar
       mode="light"
-      leftContent={<img className="logo" src={logoSrc}/>}
+      leftContent={<img className="logo" src={logoSrc} alt="logo"/>}
       rightContent={[
         // <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <BaseBtn key="2" href="/topic/release" btnName="icon-release" />

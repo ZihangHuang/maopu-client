@@ -61,6 +61,8 @@ class Message extends React.Component {
       }else if(v.type === 'reply'){
         return <MessageItem type="reply" topic={v.topic} reply={v.reply} createTime={setFormatDate(v.createTime, true)} key={v._id}/>
       }
+
+      return <div></div>
     })
 
     return (

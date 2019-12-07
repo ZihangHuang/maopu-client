@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { createHashHistory } from 'history'
+import { withRouter } from 'react-router-dom'
 import './index.css'
 import commentSrc from '../../../assets/images/comment.png'
 
-const history = createHashHistory()
-
-export default function NewsItem(props) {
+function NewsItem(props) {
   const info = props.info
 
   const goTopicDetail = () => {
-    history.push(`/topic/detail/${info._id}`)
+    props.history.push(`/topic/detail/${info._id}`)
   }
 
   return (
@@ -29,3 +27,5 @@ export default function NewsItem(props) {
 NewsItem.propTypes = {
   info: PropTypes.object.isRequired
 }
+
+export default withRouter(NewsItem)

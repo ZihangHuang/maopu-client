@@ -1,15 +1,14 @@
 import React from 'react'
 import { tabs } from '../../../config'
 import PropTypes from 'prop-types'
-import { createHashHistory } from 'history'
+import { withRouter } from 'react-router-dom'
 import commentSrc from '../../../assets/images/comment.png'
-const history = createHashHistory()
 
-export default function TopicItem(props) {
+function TopicItem(props) {
   const obj = props.obj
 
   const goTopicDetail = () => {
-    history.push(`/topic/detail/${obj._id}`)
+    props.history.push(`/topic/detail/${obj._id}`)
   }
 
   return (
@@ -59,3 +58,5 @@ export default function TopicItem(props) {
 TopicItem.propTypes = {
   obj: PropTypes.object.isRequired
 }
+
+export default withRouter(TopicItem)

@@ -2,7 +2,8 @@ import React from 'react'
 //import logo from './logo.svg'
 import './App.css'
 import { Provider } from 'mobx-react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import history from './history'
 import AuthRoute from './AuthRoute'
 import rootStore from './store/index'
 import asyncComponent from './components/core/asyncComponent'
@@ -37,7 +38,7 @@ const More = asyncComponent(() => import('./pages/more/More'))
 function App() {
   return (
     <Provider rootStore={rootStore}>
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/community" exact component={Community} />
