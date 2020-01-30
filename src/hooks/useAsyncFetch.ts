@@ -36,6 +36,8 @@ export function useAsyncFetch<T = IRes>(
   const run = useCallback((reqData: any): Promise<T> | void => {
     if (isLoading === true || hasMore === false) return
 
+    count.current += 1
+
     const runCount = count.current
 
     setIsLoading(true)
