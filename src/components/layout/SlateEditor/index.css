@@ -1,0 +1,16 @@
+.con-image {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+.editor {
+  border-top: 1px solid #ccc;
+  background: #fff;
+  margin: 0 15px 15px 15px;
+  text-indent: 2em;
+  overflow: hidden;
+}
+
+.editor p {
+  margin: 16px 0;
+}

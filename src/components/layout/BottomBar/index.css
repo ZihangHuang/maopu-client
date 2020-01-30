@@ -11,7 +11,7 @@
   height: 50px;
   line-height: 70px;
   display: block;
-  vertical-align: bottom;
+  /* vertical-align: bottom; */
   font-size: 10px;
   text-align: center;
   color: rgb(148, 148, 148);

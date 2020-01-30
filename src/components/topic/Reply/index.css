@@ -1,0 +1,17 @@
+.reply2-box {
+  border-bottom: 1px solid #ccc;
+}
+.reply-bar {
+  position: relative;
+  top: -50px;
+}
+.reply2-delete-btn {
+  position: absolute;
+  top: 15px;
+  right: 24px;
+}
+.reply2-add-btn {
+  position: absolute;
+  top: 15px;
+  right: -3px;
+}
