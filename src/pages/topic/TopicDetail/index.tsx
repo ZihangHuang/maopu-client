@@ -224,7 +224,7 @@ const TopicDetail: React.FC<RouteComponentProps<IParams>> = function(props) {
             deleteReply={deleteReplyAjax}
             showModal={showModal}
             isLogin={userStore.isLogin}
-            isAuthor={userStore.userInfo._id === author._id}
+            isAuthor={v.author._id === author._id}
             content={v.content}
             replyAuthor={v.replyAuthor}
             isReplyOwner={userStore.userInfo._id === v.author._id}
