@@ -33,6 +33,7 @@ interface IProps {
   isAuthor: boolean // 是否楼主
   isLogin: boolean
   isReplyOwner: boolean
+  isCanDelete: boolean
   deleteReply: (replyId: string, i: number) => void
   showModal(reply2?: IReply2): void
 }
@@ -48,7 +49,8 @@ const Reply: React.FC<IProps> = function({
   deleteReply,
   replyAuthor,
   content,
-  isReplyOwner
+  isReplyOwner,
+  isCanDelete
 }) {
   function showModalHandle(e: MouseEvent): void {
     e.preventDefault()
@@ -60,8 +62,6 @@ const Reply: React.FC<IProps> = function({
     })
   }
 
-  const isShowDeleteBtn: boolean = isLogin && (isAuthor || isReplyOwner)
-  console.log(isShowDeleteBtn, isLogin, isAuthor, isReplyOwner)
   return (
     <div className="reply2-box" key={_id.slice(-3)}>
       <BaseTitleCard
@@ -85,8 +85,8 @@ const Reply: React.FC<IProps> = function({
           ''
         )}
       </BaseTitleCard>
-      {isShowDeleteBtn && (
-        <div className="reply-bar">
+      <div className="reply-bar">
+        {isCanDelete && (
           <span
             onClick={() => {
               deleteReply(_id, index)
@@ -95,15 +95,16 @@ const Reply: React.FC<IProps> = function({
           >
             删除
           </span>
-          <img
-            src={replySrc}
-            alt=""
-            className="icon-m reply2-add-btn"
-            title="回复"
-            onClick={showModalHandle}
-          />
-        </div>
-      )}
+        )}
+        <img
+          src={replySrc}
+          alt=""
+          className="icon-m reply2-add-btn"
+          title="回复"
+          onClick={showModalHandle}
+        />
+      </div>
+
       <div className="topic-reply">
         {replyAuthor && replyAuthor.nickname && (
           <span className="fc-blue">@{replyAuthor.nickname} </span>

@@ -214,6 +214,12 @@ const TopicDetail: React.FC<RouteComponentProps<IParams>> = function(props) {
   let replyList: React.ReactElement | React.ReactElement[] =
     replies.length > 0 ? (
       replies.map((v, i) => {
+        const isReplyOwner = userStore.userInfo._id === v.author._id
+
+        const isCanDelete: boolean =
+          userStore.isLogin &&
+          (userStore.userInfo._id === author._id || isReplyOwner)
+
         return (
           <ReplyItem
             key={v._id}
@@ -227,7 +233,8 @@ const TopicDetail: React.FC<RouteComponentProps<IParams>> = function(props) {
             isAuthor={v.author._id === author._id}
             content={v.content}
             replyAuthor={v.replyAuthor}
-            isReplyOwner={userStore.userInfo._id === v.author._id}
+            isReplyOwner={isReplyOwner}
+            isCanDelete={isCanDelete}
           />
         )
       })
