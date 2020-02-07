@@ -5,7 +5,8 @@ import { createForm } from 'rc-form'
 import { addTopic } from '../../../utils/proxy'
 import { toast } from '../../../utils/tools'
 import { tabs } from '../../../config'
-import SlateEditor from '../../../components/layout/SlateEditor'
+// import SlateEditor from '../../../components/layout/SlateEditor'
+import SimpleEditor from '../../../components/layout/SimpleEditor'
 import { IAddTopicData } from '../../../types'
 
 interface ITab {
@@ -95,7 +96,8 @@ const TopicRelease: React.FC<IProps> = function(props) {
           placeholder="取个标题吧"
           type="text"
         />
-        <SlateEditor getContent={setContent} />
+        {/* <SlateEditor getContent={setContent} /> */}
+        <SimpleEditor getContent={setContent}></SimpleEditor>
       </List>
     </div>
   )

@@ -45,6 +45,7 @@ module.exports = {
         }
       }
     ],
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off'
   }
 }
