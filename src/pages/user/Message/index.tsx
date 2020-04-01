@@ -34,7 +34,7 @@ const Message: React.FC<IProps> = function Message(props) {
         let data = res.data.data
         // console.log(data)
         if (Array.isArray(data.list)) {
-          setMessageList([...messageList, ...data.list])
+          setMessageList(messageList => [...messageList, ...data.list])
         }
         setHasMore(data._pageNo < data._totalPage ? true : false)
         setIsLoading(false)

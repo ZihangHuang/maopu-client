@@ -105,7 +105,7 @@ const TopicDetail: React.FC<RouteComponentProps<IParams>> = function(props) {
     if (res.data.code === 1) {
       let data = res.data.data
 
-      setReplies([...replies, ...data.list])
+      setReplies(replies => [...replies, ...data.list])
       hasMore = data._pageNo < data._totalPage ? true : false
 
       pageNo++
