@@ -6,8 +6,9 @@ import BottomBar from '../../../components/layout/BottomBar'
 import TopCard from '../../../components/user/TopCard'
 import { Button, Badge, WingBlank } from 'antd-mobile'
 import BaseBtn from '../../../components/base/Btn'
-import { getUnReadMessagesCount } from '../../../utils/proxy'
+import { getUnReadMessagesCount, authentication } from '../../../utils/proxy'
 import { IUserInfo } from '../../../types'
+import { storageName } from '../../../config'
 import './index.css'
 
 const UserPage: React.FC = function() {
@@ -17,12 +18,22 @@ const UserPage: React.FC = function() {
   const userStore = store!.userStore
 
   useEffect(() => {
-    if (userStore.userInfo) {
-      getUnReadMessagesCount({
-        userId: (userStore.userInfo as IUserInfo)._id
-      }).then(res => {
+    if (userStore.isLogin) {
+      if (userStore.userInfo) {
+        getUnReadMessagesCount({
+          userId: (userStore.userInfo as IUserInfo)._id
+        }).then(res => {
+          if (res.data.code === 1) {
+            setUnReadMessagesCount(res.data.data.count)
+          }
+        })
+      }
+    } else {
+      authentication().then(res => {
         if (res.data.code === 1) {
-          setUnReadMessagesCount(res.data.data.count)
+          let token = localStorage.getItem(storageName)
+          userStore.setToken(token!)
+          userStore.getUserInfoByToken()
         }
       })
     }

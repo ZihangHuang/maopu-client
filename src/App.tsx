@@ -27,7 +27,7 @@ const App: React.FC = () => {
             <Route path="/community" component={Community} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <AuthRoute path="/user" exact component={User} />
+            <Route path="/user" exact component={User} />
             <AuthRoute path="/user/edit" component={UserEdit} />
             <AuthRoute path="/message" exact component={Message} />
             <AuthRoute path="/topic/release" component={TopicRelease} />
